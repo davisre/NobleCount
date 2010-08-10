@@ -176,26 +176,21 @@
 		var c_settings;
 		var mc_passed = false;
 
-		// if c_obj is not specified, then nothing to do here
-		if (typeof c_obj == 'string') {
-			// check for new & valid options
-			c_settings = $.extend({}, $.fn.NobleCount.settings, options);
+		// check for new & valid options
+		c_settings = $.extend({}, $.fn.NobleCount.settings, options);
 
-			// was max_chars passed via options parameter? 
-			if (typeof options != 'undefined') {
-				mc_passed = ((typeof options.max_chars == 'number') ? true : false);
-			}
-
-			// process all provided objects
-			return this.each(function(){
-				var $this = $(this);
-
-				// attach events to c_obj
-				attach_nobility($this, c_obj, c_settings, mc_passed);
-			});
+		// was max_chars passed via options parameter?
+		if (typeof options != 'undefined') {
+			mc_passed = ((typeof options.max_chars == 'number') ? true : false);
 		}
-		
-		return this;
+
+		// process all provided objects
+		return this.each(function(){
+			var $this = $(this);
+
+			// attach events to c_obj
+			attach_nobility($this, c_obj, c_settings, mc_passed);
+		});
 	};
 
 
